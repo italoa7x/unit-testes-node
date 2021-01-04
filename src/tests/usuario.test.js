@@ -1,4 +1,5 @@
-const Usuario = require("./models/Usuario");
+const Usuario = require("../models/Usuario");
+const Tarefa = require("../models/Tarefa");
 
 describe("deve tester o modulo de usuarios", () => {
   it("deve instanciar um novo usuario", () => {
@@ -29,5 +30,25 @@ describe("deve tester o modulo de usuarios", () => {
     usuario = new Usuario(null, null);
 
     expect(usuario.details()).toBe("nome: null email: null");
+  });
+
+  it("adiciona uma tarefa ao usuario", () => {
+    const tarefa = new Tarefa(
+      "tarefa 1",
+      "descricao tarefa 1",
+      new Date().toLocaleDateString()
+    );
+    const usuario = new Usuario("italo", "italo@gmail.com");
+
+    usuario.adicionarTarefa(tarefa);
+    expect(usuario.tarefas.length).toBe(1);
+  });
+
+  it("deve retornar uma lista vazia ao tentar adicionar uma tarefa invalida", () => {
+    const tarefa = null;
+    const usuario = new Usuario("italo", "italo@gmail.com");
+
+    usuario.adicionarTarefa(tarefa);
+    expect(usuario.tarefas.length).toBe(0);
   });
 });
