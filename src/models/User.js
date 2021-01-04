@@ -1,7 +1,7 @@
-class Usuario {
+class User {
   name;
   email;
-  tarefas = [];
+  tasks = [];
 
   constructor(name, email) {
     this.name = name;
@@ -13,12 +13,12 @@ class Usuario {
     return `nome: ${this.name} email: ${this.email}`;
   }
 
-  adicionarTarefa(tarefa) {
-    if (!tarefa) {
+  addTask(task) {
+    if (!task) {
       return new Error("Tarefa inválida");
     }
-    this.tarefas.push(...this.tarefas, tarefa);
+    this.tasks.push(...this.tasks, task);
   }
 }
 
-module.exports = Usuario;
+module.exports = User;
