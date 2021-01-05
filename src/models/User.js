@@ -2,6 +2,7 @@ class User {
   name;
   email;
   tasks = [];
+  password;
 
   constructor(name, email) {
     this.name = name;
@@ -18,6 +19,13 @@ class User {
       return new Error("Tarefa inválida");
     }
     this.tasks.push(...this.tasks, task);
+  }
+
+  addPassword(password) {
+    if (password.lenght <= 4) {
+      return new Error("Tamanho inválido!");
+    }
+    this.password = password;
   }
 }
 

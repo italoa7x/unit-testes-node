@@ -51,4 +51,12 @@ describe("deve tester o modulo de usuarios", () => {
     usuario.addTask(tarefa);
     expect(usuario.tasks.length).toBe(0);
   });
+
+  it("deve adicionar uma senha que possua mais de 4 caracteres ao usuario", () => {
+    usuario = new User("italo", "italo@gmail.com");
+
+    usuario.addPassword("123456");
+
+    expect(usuario.password).toBe("123456");
+  });
 });

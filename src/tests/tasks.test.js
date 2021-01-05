@@ -7,7 +7,7 @@ describe("testa tarefas", () => {
       new Date().toLocaleDateString()
     );
 
-    expect(tarefa.dateCriation).toBe("04/01/2021");
+    expect(tarefa.dateCriation).toBe(new Date().toLocaleDateString());
   });
 
   it("deve criar uma instancia de tarefa e verificar que será retornado nulo quando nao informado dados", () => {
